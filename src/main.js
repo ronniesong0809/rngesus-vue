@@ -6,6 +6,7 @@ import Buefy from "buefy";
 import "buefy/dist/buefy.css";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+import "@/assets/app.css";
 
 Vue.use(Buefy);
 Vue.use(ElementUI);
