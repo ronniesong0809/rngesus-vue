@@ -4,14 +4,27 @@
       <a :href="game.url">
         <div class="columns is-vcentered">
           <div class="column is-one-quarter">
-            <figure class="image">
-              <img :src="game.thumb_url" />
-            </figure>
+            <el-image :src="game.thumb_url" style="height:10%;" />
           </div>
           <div class="column">
+            <span class="has-text-danger" :hidden="game.discount == 0.0">
+              {{ game.discount * 100 }}% off
+            </span>
+            <br />
             <span>{{ game.name }} ({{ game.year_published }})</span>
-            <b-rate v-model="game.average_user_rating" disabled icon="star">
-            </b-rate>
+            <b-rate
+              v-model="game.average_user_rating"
+              disabled
+              icon="star"
+            ></b-rate>
+            <span> ${{ game.price }} </span>
+            <span
+              class="has-text-grey is-size-7"
+              style="text-decoration:line-through;"
+              :hidden="game.discount == 0.0"
+            >
+              ${{ game.msrp }}
+            </span>
           </div>
         </div>
       </a>
@@ -20,10 +33,10 @@
 </template>
 
 <script>
-import { getTrending } from "@/api/boardgameatlas";
+import { getRecentLow } from "@/api/boardgameatlas";
 
 export default {
-  name: "Trending",
+  name: "getRecentLow",
   data() {
     return {
       trending: {
@@ -40,7 +53,7 @@ export default {
       return value.toFixed(2);
     },
     async fetchTrending() {
-      getTrending().then(value => {
+      getRecentLow().then(value => {
         const { data } = value;
         this.trending = data;
       });
