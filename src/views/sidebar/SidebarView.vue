@@ -27,8 +27,8 @@ export default {
   name: "SideBar",
   data() {
     return {
-      activeTab: 0
+      activeTab: 0,
     };
-  }
+  },
 };
 </script>

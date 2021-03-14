@@ -11,7 +11,7 @@ import "@/assets/app.css";
 Vue.use(Buefy);
 Vue.use(ElementUI);
 ConfigProgrammatic.setOptions({
-  defaultIconPack: "fa"
+  defaultIconPack: "fa",
 });
 
 Vue.config.productionTip = false;
@@ -19,5 +19,5 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");

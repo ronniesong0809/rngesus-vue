@@ -3,13 +3,13 @@ import { Message, MessageBox } from "element-ui";
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_SERVER_URL,
-  timeout: 5000
+  timeout: 5000,
 });
 
 service.defaults.withCredentials = false;
 
 service.interceptors.response.use(
-  response => {
+  (response) => {
     const res = response.data;
     if (res.code !== 200) {
       if (res.code === 401) {
@@ -17,7 +17,7 @@ service.interceptors.response.use(
           confirmButtonText: "Confirm",
           cancelButtonText: "Cancel",
           type: "warning",
-          center: true
+          center: true,
         }).then(() => {
           window.location.href = "#/login";
         });
@@ -26,7 +26,7 @@ service.interceptors.response.use(
           showClose: true,
           message: res.Message || "Error",
           type: "error",
-          duration: 3000
+          duration: 3000,
         });
       }
       return Promise.reject(new Error(res.message || "Error"));
@@ -34,12 +34,12 @@ service.interceptors.response.use(
       return res;
     }
   },
-  error => {
+  (error) => {
     Message({
       showClose: true,
       message: error.message,
       type: "error",
-      duration: 5000
+      duration: 5000,
     });
     return Promise.reject(error);
   }
