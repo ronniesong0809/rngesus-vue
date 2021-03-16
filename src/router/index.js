@@ -9,6 +9,22 @@ const routes = [
     name: "Home",
     component: () => import("@/views/Home"),
   },
+  {
+    path: "/signup",
+    name: "Signup",
+    component: () => import("@/views/auth/Signup"),
+    meta: { title: "Signup" },
+  },
+  {
+    path: "/404",
+    name: "404",
+    component: () => import("@/views/error/404"),
+    meta: { title: "404-Notfound" },
+  },
+  {
+    path: "*",
+    redirect: "/404",
+  },
 ];
 
 const router = new VueRouter({
