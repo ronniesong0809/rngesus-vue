@@ -129,14 +129,17 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.loading = true;
+          
           userSignup(this.ruleForm)
             .then((value) => {
               const { code, message } = value;
+              
               if (code === 200) {
                 this.$message({
                   message: "Signup Success",
                   type: "success",
                 });
+
                 setTimeout(() => {
                   this.loading = false;
                   this.$router.push({ path: this.redirect || "/login" });
