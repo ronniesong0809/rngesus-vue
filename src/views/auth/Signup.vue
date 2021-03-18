@@ -74,72 +74,72 @@ export default {
         username: "",
         password: "",
         confirm: "",
-        email: "",
+        email: ""
       },
       rules: {
         username: [
           {
             required: true,
             message: "Please enter a username",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             min: 2,
             max: 10,
             message: "Must be 2 - 10 characters in length",
-            trigger: "blur",
-          },
+            trigger: "blur"
+          }
         ],
         password: [
           {
             required: true,
             message: "Please enter the password",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             min: 6,
             max: 20,
             message: "Must be 6 - 20 characters in length",
-            trigger: "blur",
-          },
+            trigger: "blur"
+          }
         ],
         confirm: [
           {
             required: true,
             message: "Please enter a password",
-            trigger: "blur",
+            trigger: "blur"
           },
-          { validator: validatePass, trigger: "blur" },
+          { validator: validatePass, trigger: "blur" }
         ],
         email: [
           {
             required: true,
             message: "Please enter an email address",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             type: "email",
             message: "Please enter a valid email address",
-            trigger: ["blur", "change"],
-          },
-        ],
-      },
+            trigger: ["blur", "change"]
+          }
+        ]
+      }
     };
   },
   methods: {
     submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
+      this.$refs[formName].validate(valid => {
         if (valid) {
           this.loading = true;
-          
+
           userSignup(this.ruleForm)
-            .then((value) => {
+            .then(value => {
               const { code, message } = value;
-              
+
               if (code === 200) {
                 this.$message({
                   message: "Signup Success",
-                  type: "success",
+                  type: "success"
                 });
 
                 setTimeout(() => {
@@ -160,8 +160,8 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
-    },
-  },
+    }
+  }
 };
 </script>
 

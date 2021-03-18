@@ -1,4 +1,4 @@
-import Cookies from "js-cookies";
+import Cookies from "js-cookie";
 
 const uToken = "u_token";
 

@@ -27,9 +27,9 @@ export default {
   data() {
     return {
       trending: {
-        lists: [],
+        lists: []
       },
-      colors: ["#99A9BF", "#F7BA2A", "#FF9900"],
+      colors: ["#99A9BF", "#F7BA2A", "#FF9900"]
     };
   },
   created() {
@@ -40,11 +40,11 @@ export default {
       return value.toFixed(2);
     },
     async fetchTrending() {
-      getTrending().then((value) => {
+      getTrending().then(value => {
         const { data } = value;
         this.trending = data;
       });
-    },
-  },
+    }
+  }
 };
 </script>

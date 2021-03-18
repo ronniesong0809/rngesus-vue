@@ -17,14 +17,14 @@ export default {
   name: "404",
   data() {
     return {
-      times: 5,
+      times: 5
     };
   },
   created() {
     this.redirectToHome();
   },
   methods: {
-    redirectToHome: function () {
+    redirectToHome: function() {
       this.timer = setInterval(() => {
         this.times--;
         if (this.times === 0) {
@@ -32,8 +32,8 @@ export default {
           this.$router.push({ path: "/" });
         }
       }, 1000);
-    },
-  },
+    }
+  }
 };
 </script>
 

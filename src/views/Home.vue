@@ -21,13 +21,13 @@ export default {
   name: "Home",
   components: {
     Sidebar,
-    Post: List,
+    Post: List
   },
   data() {
     return {
       billboard: {
-        content: "",
-      },
+        content: ""
+      }
     };
   },
   created() {
@@ -35,11 +35,11 @@ export default {
   },
   methods: {
     async fetchBillboard() {
-      getBillboard().then((value) => {
+      getBillboard().then(value => {
         const { data } = value;
         this.billboard = data;
       });
-    },
-  },
+    }
+  }
 };
 </script>

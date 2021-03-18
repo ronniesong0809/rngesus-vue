@@ -63,26 +63,26 @@ export default {
           {
             required: true,
             message: "Please enter the username",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             min: 2,
             max: 15,
             message: "Must be 2 - 10 characters in length",
-            trigger: "blur",
+            trigger: "blur"
           }
         ],
         password: [
           {
             required: true,
             message: "Please enter the password",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             min: 6,
             max: 20,
             message: "Must be 6 - 20 characters in length",
-            trigger: "blur",
+            trigger: "blur"
           }
         ]
       }
@@ -95,7 +95,7 @@ export default {
           this.loading = true;
 
           this.$store
-            .dispatch("user/userLogin", this.ruleForm)
+            .dispatch("user/Login", this.ruleForm)
             .then(() => {
               this.$message({
                 message: "Login Success",

@@ -21,16 +21,17 @@ const actions = {
         username: username.trim(),
         password: password,
         rememberMe: rememberMe
-      }).then(response => {
-        const { data } = response;
+      })
+        .then(response => {
+          const { data } = response;
 
-        commit("SET_TOKEN_STATE", data.token);
-        setToken(data.token);
-        resolve();
-      }).catch(error => {
-        console.log(error);
-        reject(error);
-      });
+          commit("SET_TOKEN_STATE", data.token);
+          setToken(data.token);
+          resolve();
+        })
+        .catch(error => {
+          reject(error);
+        });
     });
   }
 };
