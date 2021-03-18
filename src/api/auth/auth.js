@@ -1,10 +1,10 @@
 import request from "@/utils/request";
 
-export function userSignup(userDTO) {
+export function userSignup(data) {
   return request({
     url: "/ums/user/signup",
     method: "post",
-    data: userDTO
+    data
   });
 }
 
