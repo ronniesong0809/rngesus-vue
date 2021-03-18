@@ -16,6 +16,12 @@ const routes = [
     meta: { title: "Signup" },
   },
   {
+    path: "/login",
+    name: "Login",
+    component: () => import("@/views/auth/Login"),
+    meta: { title: "Login" },
+  },
+  {
     path: "/404",
     name: "404",
     component: () => import("@/views/error/404"),

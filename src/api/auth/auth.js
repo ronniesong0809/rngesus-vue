@@ -4,6 +4,14 @@ export function userSignup(userDTO) {
   return request({
     url: "/ums/user/signup",
     method: "post",
-    data: userDTO,
+    data: userDTO
+  });
+}
+
+export function userLogin(data) {
+  return request({
+    url: "/ums/user/login",
+    method: "post",
+    data
   });
 }

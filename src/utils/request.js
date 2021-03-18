@@ -11,6 +11,7 @@ service.defaults.withCredentials = false;
 service.interceptors.response.use(
   (response) => {
     const res = response.data;
+    console.log(res);
     if (res.code !== 200) {
       if (res.code === 401) {
         MessageBox.confirm("Error, please login!", "Error!", {
