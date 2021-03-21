@@ -15,3 +15,10 @@ export function userLogin(data) {
     data
   });
 }
+
+export function getUserInfo() {
+  return request({
+    url: "/ums/user/info",
+    method: "get"
+  });
+}

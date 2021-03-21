@@ -1,5 +1,7 @@
 import axios from "axios";
 import { Message, MessageBox } from "element-ui";
+import store from "@/store";
+import { getToken } from "@/utils/auth";
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_SERVER_URL,
@@ -42,6 +44,18 @@ service.interceptors.response.use(
       type: "error",
       duration: 5000
     });
+    return Promise.reject(error);
+  }
+);
+
+service.interceptors.response.use(
+  config => {
+    if (store.getters.token) {
+      config.headers["Authorization"] = "Bearer " + getToken();
+    }
+    return config;
+  },
+  error => {
     return Promise.reject(error);
   }
 );
