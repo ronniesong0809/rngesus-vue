@@ -22,3 +22,10 @@ export function getUserInfo() {
     method: "get"
   });
 }
+
+export function userLogout() {
+  return request({
+    url: "/ums/user/logout",
+    method: "get"
+  });
+}

@@ -1,4 +1,4 @@
-import { userLogin, getUserInfo } from "@/api/auth/auth";
+import { userLogin, userLogout, getUserInfo } from "@/api/auth/auth";
 import { getToken, setToken, removeToken } from "@/utils/auth";
 
 const state = {
@@ -30,6 +30,21 @@ const actions = {
 
           commit("SET_TOKEN_STATE", data.token);
           setToken(data.token);
+          resolve();
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+  logout({ commit }) {
+    return new Promise((resolve, reject) => {
+      userLogout(state.token)
+        .then(response => {
+          console.log(response);
+          commit("SET_TOKEN_STATE", "");
+          commit("SET_USERINFO_STATE", "");
+          removeToken();
           resolve();
         })
         .catch(error => {
