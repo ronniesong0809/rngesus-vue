@@ -7,6 +7,7 @@ import "buefy/dist/buefy.css";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "@/assets/app.css";
+import dayjs from "dayjs";
 
 Vue.use(Buefy);
 Vue.use(ElementUI);
@@ -15,6 +16,7 @@ ConfigProgrammatic.setOptions({
 });
 
 Vue.config.productionTip = false;
+Vue.prototype.dayjs = dayjs;
 
 new Vue({
   router,

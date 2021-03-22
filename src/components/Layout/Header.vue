@@ -64,7 +64,7 @@
             <b-button
               class="is-light"
               tag="router-link"
-              :to="{ path: `/${userinfo.username}` }"
+              :to="{ path: `/users/${userinfo.username}` }"
             >
               {{ userinfo.username }}'s' Profile
             </b-button>

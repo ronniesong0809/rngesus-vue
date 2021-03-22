@@ -30,6 +30,12 @@ const routes = [
     meta: { title: "404-Notfound" }
   },
   {
+    path: "/users/:username",
+    name: "Users",
+    component: () => import("@/views/user/Profile"),
+    meta: { title: "User Profile" }
+  },
+  {
     path: "*",
     redirect: "/404",
     hidden: true
