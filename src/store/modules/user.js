@@ -37,7 +37,7 @@ const actions = {
         });
     });
   },
-  logout({ commit }) {
+  Logout({ commit }) {
     return new Promise((resolve, reject) => {
       userLogout(state.token)
         .then(response => {
@@ -57,6 +57,7 @@ const actions = {
       getUserInfo()
         .then(response => {
           const { data } = response;
+          console.log(data);
 
           if (!data) {
             commit("SET_TOKEN_STATE", "");
@@ -66,7 +67,6 @@ const actions = {
             reject("Authorization Failed! Please Login again!");
           }
           commit("SET_USERINFO_STATE", data);
-          console.log(data);
           resolve(data);
         })
         .catch(error => {
