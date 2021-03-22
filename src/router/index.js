@@ -1,5 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from "../store";
+import { getToken } from "@/utils/auth";
 
 Vue.use(VueRouter);
 
@@ -42,6 +44,21 @@ VueRouter.prototype.push = function push(location) {
 const router = new VueRouter({
   routes,
   mode: "history"
+});
+
+router.beforeEach(async (to, from, next) => {
+  const token = getToken();
+
+  if (token) {
+    if (to.path === "/login") {
+      next({ path: "/" });
+    } else {
+      await store.dispatch("user/getInfo");
+      next();
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;

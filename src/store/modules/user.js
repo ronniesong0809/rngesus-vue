@@ -57,7 +57,6 @@ const actions = {
       getUserInfo()
         .then(response => {
           const { data } = response;
-          console.log(data);
 
           if (!data) {
             commit("SET_TOKEN_STATE", "");

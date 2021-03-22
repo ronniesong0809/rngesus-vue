@@ -8,10 +8,12 @@ const service = axios.create({
   timeout: 5000
 });
 
-service.interceptors.response.use(
+service.defaults.withCredentials = false;
+
+service.interceptors.request.use(
   config => {
     if (store.getters.token) {
-      config.headers["Authorization"] = "Bearer " + getToken();
+      config.headers["Authorization"] = `Bearer ${getToken()}`;
     }
     return config;
   },
@@ -19,8 +21,6 @@ service.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-service.defaults.withCredentials = false;
 
 service.interceptors.response.use(
   response => {

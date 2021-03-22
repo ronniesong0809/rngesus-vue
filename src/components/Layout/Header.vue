@@ -66,7 +66,7 @@
               tag="router-link"
               :to="{ path: `/${userinfo.username}` }"
             >
-              Profile
+              {{ userinfo.username }}'s' Profile
             </b-button>
 
             <b-button class="is-light" tag="a" @click="logout">
