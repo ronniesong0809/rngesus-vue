@@ -1,14 +1,12 @@
 <template>
-  <div class="member">
+  <div class="member" v-if="done">
     <div class="columns">
       <div class="column is-one-quarter">
         <el-card shadow="never">
           <div slot="header" class="has-text-centered">
             <el-avatar
               :size="64"
-              :src="
-                `https://www.gravatar.com/avatar/${user.avatar.toLowerCase()}`
-              "
+              :src="`https://www.gravatar.com/avatar/${user.avatar}`"
             />
             <p class="mb-3">
               <b>
@@ -23,7 +21,7 @@
               <b-icon pack="fas" icon="envelope" size="is-small"> </b-icon>
               {{ user.email }}
             </p>
-            <p class="content">Bio：{{ user.bio }}</p>
+            <p class="content">Bio: {{ user.bio }}</p>
             <p class="content">
               Joined <b>RNGesus</b> on
               <time
@@ -55,7 +53,8 @@ export default {
   name: "Profile",
   data() {
     return {
-      user: {}
+      user: {},
+      done: false
     };
   },
   computed: {
@@ -67,7 +66,8 @@ export default {
   methods: {
     fetchUserById() {
       getUserInfo().then(res => {
-        this.user = res;
+        this.user = res.data;
+        this.done = true;
       });
     }
   }
