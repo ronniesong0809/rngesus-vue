@@ -14,6 +14,6 @@ function searchGames(query, limit) {
     "https://api.boardgameatlas.com/api/search?" +
       search +
       "&client_id=" +
-      process.env.VUE_APP_CLIENT_ID
+      process.env.VUE_APP_BOARDGAME_ATLAS_CLIENT_ID
   );
 }
