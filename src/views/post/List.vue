@@ -5,7 +5,7 @@
         <div class="media-left">
           <figure class="image is-48x48">
             <img
-              :src="`https://www.gravatar.com/avatar/${post.userId}`"
+              :src="`https://www.gravatar.com/avatar/${post.avatar}`"
               style="border-radius: 10px;"
             />
           </figure>
@@ -18,6 +18,9 @@
           </div>
           <nav class="level has-text-grey is-mobile is-size-7 mt-3">
             <div class="level-left">
+              <span class="displayName has-text-black mr-1">
+                {{ post.alias || post.userName }}
+              </span>
               <span class="createTime mr-1">
                 {{ dayjs(post.createTime).format("YYYY/MM/DD") }}
               </span>
