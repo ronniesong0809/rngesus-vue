@@ -1,6 +1,7 @@
 import "buefy/dist/buefy.css";
 import "element-ui/lib/theme-chalk/index.css";
 import "@/assets/app.css";
+import "element-ui/lib/theme-chalk/index.css";
 
 import Buefy, { ConfigProgrammatic } from "buefy";
 
@@ -8,14 +9,15 @@ import App from "./App.vue";
 import ElementUI from "element-ui";
 import Vue from "vue";
 import dayjs from "dayjs";
-import relativeTime  from "dayjs/plugin/relativeTime";
+import locale from "element-ui/lib/locale/lang/en";
+import relativeTime from "dayjs/plugin/relativeTime";
 import router from "./router";
 import store from "./store";
 
-dayjs.extend(relativeTime)
+dayjs.extend(relativeTime);
 
 Vue.use(Buefy);
-Vue.use(ElementUI);
+Vue.use(ElementUI, { locale });
 ConfigProgrammatic.setOptions({
   defaultIconPack: "fa"
 });

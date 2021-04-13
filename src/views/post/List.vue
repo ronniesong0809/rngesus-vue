@@ -1,7 +1,7 @@
 <template>
   <el-card>
     <div class="clearfix" slot="header">
-      <el-tabs v-model="activeName" @tab-click="handleClick">
+      <el-tabs v-model="activeName" @tab-click="handleTabChange">
         <el-tab-pane label="New" name="latest" icon="">
           <Post :records="records" />
         </el-tab-pane>
@@ -10,36 +10,54 @@
         </el-tab-pane>
       </el-tabs>
     </div>
+    <Pagination
+      :current.sync="page.current"
+      :size.sync="page.size"
+      :total="page.total"
+      @pagination="fetch"
+    />
   </el-card>
 </template>
 
 <script>
 import { getList } from "@/api/post";
 import Post from "@/views/post/Post";
+import Pagination from "@/components/Pagination/Pagination";
 
 export default {
   name: "List",
   data() {
     return {
       records: [],
-      activeName: "latest"
+      activeName: "latest",
+      page: {
+        tab: "latest",
+        current: 1,
+        size: 10,
+        total: 0
+      }
     };
   },
   components: {
-    Post
+    Post,
+    Pagination
   },
   created() {
-    this.init(this.tab);
+    this.fetch(this.page.tab);
   },
   methods: {
-    init(tab) {
-      getList(1, 10, tab).then(response => {
+    fetch(tab) {
+      getList(this.page.current, this.page.size, tab).then(response => {
         const { data } = response;
         this.records = data.records;
+        this.page.current = data.current;
+        this.page.size = data.size;
+        this.page.total = data.total;
       });
     },
-    handleClick(tab) {
-      this.init(tab.name);
+    handleTabChange(tab) {
+      this.fetch(tab.name);
+      this.page.current = 1;
     }
   }
 };
