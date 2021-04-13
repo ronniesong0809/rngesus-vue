@@ -1,13 +1,18 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
-import Buefy, { ConfigProgrammatic } from "buefy";
 import "buefy/dist/buefy.css";
-import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "@/assets/app.css";
+
+import Buefy, { ConfigProgrammatic } from "buefy";
+
+import App from "./App.vue";
+import ElementUI from "element-ui";
+import Vue from "vue";
 import dayjs from "dayjs";
+import relativeTime  from "dayjs/plugin/relativeTime";
+import router from "./router";
+import store from "./store";
+
+dayjs.extend(relativeTime)
 
 Vue.use(Buefy);
 Vue.use(ElementUI);

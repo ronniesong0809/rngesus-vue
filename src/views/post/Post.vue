@@ -17,13 +17,6 @@
         </div>
         <nav class="level has-text-grey is-mobile is-size-7 mt-3">
           <div class="level-left">
-            <span class="displayName has-text-black mr-1">
-              {{ post.alias || post.userName }}
-            </span>
-            <span class="createTime mr-1">
-              {{ dayjs(post.createTime).format("YYYY/MM/DD") }}
-            </span>
-
             <span
               class="tag is-hidden-mobile is-danger is-light mr-1"
               v-for="(tag, index) in post.tags"
@@ -32,11 +25,21 @@
               {{ tag.name }}
             </span>
 
-            <span class="views is-hidden-mobile">views: {{ post.view }}</span>
+            <span class="displayName mr-1">
+              Posted by {{ post.alias || post.userName }}
+            </span>
+
+            <span class="createTime mr-1">
+              {{ dayjs(post.createTime).fromNow() }}
+            </span>
           </div>
         </nav>
       </div>
-      <div class="media-right" />
+      <div class="media-right">
+        <span class="views is-size-7 is-hidden-mobile">
+          Views: {{ post.view }}
+        </span>
+      </div>
     </article>
   </div>
 </template>
