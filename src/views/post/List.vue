@@ -56,8 +56,8 @@ export default {
       });
     },
     handleTabChange(tab) {
-      this.fetch(tab.name);
       this.page.current = 1;
+      this.fetch(tab.name);
     }
   }
 };
