@@ -24,16 +24,22 @@ const routes = [
     meta: { title: "Login" }
   },
   {
-    path: "/404",
-    name: "404",
-    component: () => import("@/views/error/404"),
-    meta: { title: "404-Notfound" }
+    path: "/post/create",
+    name: "Create Post",
+    component: () => import("@/views/post/Create"),
+    meta: { title: "Create Post", requireAuth: true }
   },
   {
     path: "/users/:username",
     name: "Users",
     component: () => import("@/views/user/Profile"),
     meta: { title: "User Profile" }
+  },
+  {
+    path: "/404",
+    name: "404",
+    component: () => import("@/views/error/404"),
+    meta: { title: "404-Notfound" }
   },
   {
     path: "*",

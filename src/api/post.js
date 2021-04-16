@@ -7,3 +7,11 @@ export function getList(current, size, tab) {
     params: { current: current, size: size, tab: tab }
   });
 }
+
+export function createPost(topic) {
+  return request({
+    url: "/post/create",
+    method: "post",
+    data: topic
+  });
+}
