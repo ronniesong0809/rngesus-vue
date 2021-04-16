@@ -66,9 +66,9 @@ export default {
             trigger: "blur"
           },
           {
-            min: 2,
-            max: 15,
-            message: "Must be 2 - 10 characters in length",
+            min: 6,
+            max: 20,
+            message: "Must be 6 - 20 characters in length",
             trigger: "blur"
           }
         ],
