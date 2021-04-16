@@ -12,7 +12,7 @@
                 v-model="ruleForm.title"
                 type="text"
                 minlength="3"
-                maxlength="50"
+                maxlength="100"
                 placeholder="Title"
               />
             </b-field>
@@ -22,7 +22,7 @@
                 v-model="ruleForm.content"
                 type="textarea"
                 minlength="5"
-                maxlength="250"
+                maxlength="20000"
                 placeholder="Content..."
               />
             </b-field>
@@ -31,7 +31,7 @@
               <b-taginput
                 v-model="ruleForm.tags"
                 maxtags="5"
-                maxlength="15"
+                maxlength="30"
                 ellipsis
                 placeholder="Tags(optional)"
               />
@@ -92,9 +92,9 @@ export default {
       }
       if (
         this.ruleForm.title.length < 3 ||
-        this.ruleForm.title.length > 50 ||
+        this.ruleForm.title.length > 100 ||
         this.ruleForm.content.length < 5 ||
-        this.ruleForm.content.length > 250
+        this.ruleForm.content.length > 20000
       ) {
         this.showMessage("Please check your title", "error");
         return false;
