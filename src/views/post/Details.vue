@@ -15,24 +15,12 @@
           </div>
         </div>
 
-        <b-taglist>
-          <span v-for="(tag, index) in tags" :key="index">
-            <b-tag type="is-info is-light mr-2">
-              {{ "#" + tag.name }}
-            </b-tag>
-          </span>
-        </b-taglist>
+        <Tags :tags="tags" />
 
         <div v-html="markdown"></div>
 
         <nav class="mt-6">
-          <b-taglist>
-            <span v-for="(tag, index) in tags" :key="index">
-              <b-tag type="is-info is-light mr-2">
-                {{ "#" + tag.name }}
-              </b-tag>
-            </span>
-          </b-taglist>
+          <Tags :tags="tags" />
         </nav>
       </el-card>
     </div>
@@ -42,6 +30,7 @@
 <script>
 import { getPost } from "@/api/post";
 import { marked } from "marked";
+import Tags from "@/components/Tags";
 
 export default {
   name: "PostDetail",
@@ -53,6 +42,9 @@ export default {
       },
       tags: []
     };
+  },
+  components: {
+    Tags
   },
   mounted() {
     this.fetchPost();

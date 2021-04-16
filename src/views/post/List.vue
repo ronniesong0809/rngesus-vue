@@ -3,10 +3,10 @@
     <div class="clearfix" slot="header">
       <el-tabs v-model="activeName" @tab-click="handleTabChange">
         <el-tab-pane label="New" name="latest" icon="">
-          <Post :records="records" />
+          <ListItem :records="records" />
         </el-tab-pane>
         <el-tab-pane label="Hot" name="hottest">
-          <Post :records="records" />
+          <ListItem :records="records" />
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -21,8 +21,8 @@
 
 <script>
 import { getList } from "@/api/post";
-import Post from "@/views/post/Post";
-import Pagination from "@/components/Pagination/Pagination";
+import ListItem from "@/components/ListItem";
+import Pagination from "@/components/Pagination";
 
 export default {
   name: "List",
@@ -39,7 +39,7 @@ export default {
     };
   },
   components: {
-    Post,
+    ListItem,
     Pagination
   },
   created() {

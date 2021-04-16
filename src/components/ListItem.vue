@@ -48,7 +48,7 @@
 
 <script>
 export default {
-  name: "Post",
+  name: "ListItem",
   props: ["records"]
 };
 </script>
