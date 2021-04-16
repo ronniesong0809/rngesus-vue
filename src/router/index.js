@@ -30,6 +30,11 @@ const routes = [
     meta: { title: "Create Post", requireAuth: true }
   },
   {
+    path: "/post/:id",
+    name: "Post Detail",
+    component: () => import("@/views/post/Details")
+  },
+  {
     path: "/users/:username",
     name: "Users",
     component: () => import("@/views/user/Profile"),

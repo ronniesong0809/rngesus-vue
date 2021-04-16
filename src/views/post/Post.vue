@@ -11,9 +11,11 @@
       </div>
       <div class="media-content">
         <div class="content-title">
-          <p class="ellipsis is-ellipsis-1">
-            <span class="is-size-6">{{ post.title }}</span>
-          </p>
+          <router-link :to="{ name: 'Post Detail', params: { id: post.id } }">
+            <p class="ellipsis is-ellipsis-1">
+              <span class="is-size-6">{{ post.title }}</span>
+            </p>
+          </router-link>
         </div>
         <nav class="level has-text-grey is-mobile is-size-7 mt-3">
           <div class="level-left">

@@ -102,7 +102,12 @@ export default {
       createPost(this.ruleForm).then(res => {
         if (res.code === 200) {
           this.showMessage("Post created successfully", "success");
-          this.resetForm("ruleForm");
+          this.$router.push({
+            name: "Post Detail",
+            params: {
+              id: res.data.id
+            }
+          });
         } else {
           this.showMessage("Post failed", "error");
         }
