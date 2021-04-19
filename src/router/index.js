@@ -35,6 +35,12 @@ const routes = [
     component: () => import("@/views/post/Details")
   },
   {
+    path: "/post/edit/:id",
+    name: "Edit Post",
+    component: () => import("@/views/post/Edit"),
+    meta: { title: "Edit Post" }
+  },
+  {
     path: "/users/:username",
     name: "Users",
     component: () => import("@/views/user/Profile"),

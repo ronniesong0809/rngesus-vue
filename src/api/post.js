@@ -22,10 +22,18 @@ export function getPost(id) {
   });
 }
 
-export function createPost(topic) {
+export function createPost(post) {
   return request({
     url: "/post/create",
     method: "post",
-    data: topic
+    data: post
+  });
+}
+
+export function editPost(post) {
+  return request({
+    url: "/post/edit",
+    method: "post",
+    data: post
   });
 }
