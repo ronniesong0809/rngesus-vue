@@ -19,9 +19,15 @@
 
         <div v-html="markdown"></div>
 
-        <nav class="mt-6">
+        <nav class="my-5">
           <Tags :tags="tags" />
         </nav>
+
+        <router-link :to="{ name: 'Edit Post', params: { id: post.id } }">
+          <b-button type="is-info is-light" rounded>
+            Edit
+          </b-button>
+        </router-link>
       </el-card>
     </div>
   </div>

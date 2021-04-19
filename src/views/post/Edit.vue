@@ -46,12 +46,12 @@
                 Post
               </b-button>
               <b-button
-                @click="resetForm('ruleForm')"
+                @click="$router.go(-1)"
                 type="is-light"
                 rounded
                 class="ml-3"
               >
-                Reset
+                Cancel
               </b-button>
             </el-form-item>
           </el-form>
